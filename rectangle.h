@@ -10,7 +10,7 @@ class Rectangle : public Shape
 {
     //variables de classe
 public:
-    QRect *rect =       nullptr;
+    //QRect *rect =       nullptr;
     double height =     1.0;
     double width =      1.0;
 
@@ -19,10 +19,12 @@ public:
     Rectangle(double _height, double _width);
 
 public:
-    void draw() override;
+    //void draw() override;
     void select(int x, int y) override;
     bool isSelected(int x, int y) override;
     void save() override;
+
+    //setters pour config le rectangle
 
     //acces au rectangle formé
     QRect getRect();
