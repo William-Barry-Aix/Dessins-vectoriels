@@ -1,6 +1,8 @@
 #ifndef PRINC_H
 #define PRINC_H
 
+#include "shape.h"
+#include "rectangle.h"
 #include <QMainWindow>
 #include <QPainter>
 
@@ -15,6 +17,9 @@ class Princ : public QMainWindow
 public:
     Princ(QWidget *parent = nullptr);
     ~Princ();
+
+public:
+    Rectangle *rect1;
 
 public:
     virtual void paintEvent(QPaintEvent *event);

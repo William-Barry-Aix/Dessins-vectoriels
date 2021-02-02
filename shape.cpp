@@ -2,6 +2,7 @@
 
 #include <QVector3D>
 #include <QDebug>
+#include <QPainter>
 
 //constructeur
 Shape::Shape(){
@@ -17,7 +18,7 @@ Shape::Shape(QString _name, QVector3D _position){ //QString _name, QVector3D _po
     position = _position;
 }
 
-Shape::Shape(QString _name, QVector3D _position, QVector3D _borderColor, QVector3D _fillColor, double _sizeBorder){ //
+Shape::Shape(QString _name, QVector3D _position, QColor _borderColor, QColor _fillColor, double _sizeBorder){ //
     name = _name;
     position = _position;
     borderColor = _borderColor;
@@ -40,15 +41,23 @@ void Shape::setPosition(QVector3D _position){
     position = _position;
 }
 
-void Shape::setBorderColor(QVector3D _borderColor){
+void Shape::setBorderColor(QColor _borderColor){
     borderColor = _borderColor;
 }
 
-void Shape::setFillColor(QVector3D _fillColor){
+void Shape::setFillColor(QColor _fillColor){
     fillColor = _fillColor;
 }
 
 void Shape::setSizeBorder(double _sizeBorder){
     sizeBorder = _sizeBorder;
 }
+
+QPen Shape::getPen(){
+    pen.setColor(borderColor);
+
+
+    return pen;
+}
+
 

@@ -24,6 +24,9 @@ public:
     bool isSelected(int x, int y) override;
     void save() override;
 
+    //acces au rectangle formé
+    QRect getRect();
+
 };
 
 #endif // RECTANGLE_H
