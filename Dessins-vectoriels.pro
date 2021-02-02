@@ -17,10 +17,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
-    princ.cpp
+    princ.cpp \
+    rectangle.cpp \
+    shape.cpp
 
 HEADERS += \
-    princ.h
+    princ.h \
+    rectangle.h \
+    shape.h
 
 FORMS += \
     princ.ui
