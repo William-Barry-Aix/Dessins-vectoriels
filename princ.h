@@ -2,6 +2,7 @@
 #define PRINC_H
 
 #include <QMainWindow>
+#include <QPainter>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Princ; }
@@ -14,6 +15,9 @@ class Princ : public QMainWindow
 public:
     Princ(QWidget *parent = nullptr);
     ~Princ();
+
+public:
+    virtual void paintEvent(QPaintEvent *event);
 
 private:
     Ui::Princ *ui;
