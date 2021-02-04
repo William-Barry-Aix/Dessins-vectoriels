@@ -1,11 +1,11 @@
-#ifndef RECTANGLE_H
-#define RECTANGLE_H
+#ifndef ELLIPSE_H
+#define ELLIPSE_H
 
 #include <QRect>
 #include <QVector3D>
 #include "shape.h"
 
-class Rectangle : public Shape
+class Ellipse : public Shape
 {
     //variables de classe
 public:
@@ -13,9 +13,9 @@ public:
     double width =      1.0;
 
 public:
-    Rectangle();
-    Rectangle(double _height, double _width);
-    ~Rectangle();
+    Ellipse();
+    Ellipse(double _height, double _width);
+    ~Ellipse();
 
 public:
     void draw(QPainter _painter) override;
@@ -23,12 +23,14 @@ public:
     bool isSelected(int x, int y) override;
     void save() override;
 
-    //setters pour config le rectangle
+    //setters pour config le cercle
     void setHeight(double _height);
     void setWidth(double _width);
 
     //acces au rectangle formé
-    QRect getRect();
+    QRect getEllipse();
+
+
 };
 
-#endif // RECTANGLE_H
+#endif // ELLIPSE_H

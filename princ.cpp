@@ -14,7 +14,8 @@ Princ::Princ(QWidget *parent)
 Princ::~Princ()
 {
     delete ui;
-    delete rect1;
+    //delete rect1;
+    //delete painter;
 }
 
 void Princ::paintEvent(QPaintEvent *event){
@@ -30,5 +31,6 @@ void Princ::paintEvent(QPaintEvent *event){
     rect1->setSizeBorder(7.0);
 
     painter.setPen(rect1->getPen());
-    painter.drawRect(rect1->getRect());
+    //painter.drawRect(rect1->getRect());
+    rect1->draw(painter);
 }

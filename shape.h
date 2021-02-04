@@ -24,7 +24,7 @@ public: //constructeur
     ~Shape();   //destructeur
 
     //fonctions de classe virtual
-    //virtual void draw() = 0;
+    virtual void draw() = 0;
     virtual void select(int x, int y) = 0;
     virtual bool isSelected(int x, int y) = 0;
     virtual void save() = 0;

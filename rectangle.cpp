@@ -12,6 +12,15 @@ Rectangle::Rectangle(double _height, double _width)
     width = _width;
 }
 
+Rectangle::~Rectangle()
+{
+
+}
+
+void Rectangle::draw(QPainter _painter){
+    _painter.drawRect(getRect());
+}
+
 void Rectangle::select(int x, int y) {
     qDebug() << "draw rectangle" << x << ", " << y;
 }
@@ -23,6 +32,16 @@ bool Rectangle::isSelected(int x, int y){
 void Rectangle::save(){
     qDebug() << "save in meta file";
 }
+
+
+void Rectangle::setHeight(double _height){
+    height = _height;
+}
+
+void Rectangle::setWidth(double _width){
+    width = _width;
+}
+
 
 QRect Rectangle::getRect()
 {
