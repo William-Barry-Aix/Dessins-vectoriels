@@ -123,7 +123,7 @@
      <string>couleur</string>
     </property>
    </widget>
-   <widget class="QGraphicsView" name="graphicsView">
+   <widget class="PainterScene" name="graphicsView">
     <property name="geometry">
      <rect>
       <x>110</x>
@@ -135,6 +135,13 @@
    </widget>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PainterScene</class>
+   <extends>QGraphicsView</extends>
+   <header>painterscene.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

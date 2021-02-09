@@ -72,6 +72,10 @@ void Shape::setPainter(){
     //painter = new QPainter();
 }
 
+//void Shape::setFlagerino(QGraphicsItem::GraphicsItemFlag  flagz){
+//    setFlag(flagz);
+//}
+
 QPen Shape::getPen(){
     //painter = new QPainter();
     pen = new QPen();

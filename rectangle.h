@@ -5,7 +5,7 @@
 #include <QVector3D>
 #include "shape.h"
 
-class Rectangle : public Shape
+class  Rectangle : public Shape
 {
 
 

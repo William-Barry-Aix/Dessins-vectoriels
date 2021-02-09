@@ -19,11 +19,11 @@ public:
     ~Princ();
 
 public:
-    Rectangle *rect1;
+//    Rectangle *rect1;
     QPainter *painter;
 
 public:
-    virtual void paintEvent(QPaintEvent *event);
+     void paintEvent(QPaintEvent *event);
 
 private:
     Ui::Princ *ui;

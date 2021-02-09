@@ -4,6 +4,8 @@
 #include "ui_editshape.h"
 #include <QtCore>
 #include <QtGui>
+#include "shape.h"
+#include "rectangle.h"
 
 
 
@@ -14,11 +16,14 @@ class EditShape : public QWidget, private Ui::EditShape
 
 public:
     explicit EditShape(QWidget *parent = nullptr);
+    class Rectangle *rect1;
+
 
 private :
     QGraphicsScene *scene;
     QGraphicsEllipseItem *ellipse;
     QGraphicsRectItem *rectangle;
+
 
 private slots:
 

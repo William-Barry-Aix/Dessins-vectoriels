@@ -4,6 +4,8 @@
 #include <QVector3D>
 #include <QVector2D>
 #include <QPainter>
+#include <QGraphicsItem>
+
 
 class Shape
 {
@@ -41,6 +43,8 @@ public:
     void setSizeBorder(double _sizeBorder);
     void setPainter();
     QPen getPen();
+
+    //void setFlagerino(QGraphicsItem::GraphicsItemFlag flagz);
 };
 
 #endif // SHAPE_H
