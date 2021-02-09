@@ -29,7 +29,7 @@ Shape::Shape(QString _name, QVector2D _position, QColor _borderColor, QColor _fi
 }
 
 Shape::~Shape(){
-    delete painter;
+    //delete painter;
     delete pen;
 }
 
@@ -69,17 +69,17 @@ void Shape::setSizeBorder(double _sizeBorder){
 }
 
 void Shape::setPainter(){
-    painter = new QPainter();
+    //painter = new QPainter();
 }
 
-void Shape::setPen(){
-    painter = new QPainter();
+QPen Shape::getPen(){
+    //painter = new QPainter();
     pen = new QPen();
     pen->setColor(borderColor);
     pen->setWidth(sizeBorder);
     pen->setColor(fillColor);
 
-    painter->setPen(*pen);
+    return *pen;
 }
 
 

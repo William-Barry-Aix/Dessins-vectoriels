@@ -40,7 +40,7 @@ public:
     void setFillColor(QColor _fillColor);
     void setSizeBorder(double _sizeBorder);
     void setPainter();
-    void setPen();
+    QPen getPen();
 };
 
 #endif // SHAPE_H

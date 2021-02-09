@@ -22,7 +22,7 @@ void Ellipse::draw(){
 }
 
 void Ellipse::select(int x, int y) {
-    qDebug() << "draw rectangle" << x << ", " << y;
+    qDebug() << "draw ellipse" << x << ", " << y;
 }
 
 bool Ellipse::isSelected(int x, int y){

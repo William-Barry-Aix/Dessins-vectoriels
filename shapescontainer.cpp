@@ -30,7 +30,6 @@ Shape ShapesContainer::getShapeFromPoint(double _x, double _y){
     std::list<Shape>::iterator it;
     for (it = shapesList.begin(); it != shapesList.end(); it++){
         if (it->isSelected((int)_x, (int)_y)){
-            //return shapesList   [it];
             return *it;
         }
     }
