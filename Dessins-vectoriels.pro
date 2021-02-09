@@ -17,12 +17,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     editshape.cpp \
+    ellipse.cpp \
     main.cpp \
-    princ.cpp
+    princ.cpp \
+    rectangle.cpp \
+    shape.cpp \
+    shapescontainer.cpp
 
 HEADERS += \
     editshape.h \
-    princ.h
+    princ.h \
+    ellipse.h \
+    princ.h \
+    rectangle.h \
+    shape.h \
+    shapescontainer.h
 
 FORMS += \
     editshape.ui \
