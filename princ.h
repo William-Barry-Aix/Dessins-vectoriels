@@ -20,7 +20,7 @@ public:
 
 public:
     Rectangle *rect1;
-    QPainter painter;
+    //QPainter *painter;
 
 public:
     virtual void paintEvent(QPaintEvent *event);

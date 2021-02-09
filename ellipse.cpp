@@ -17,8 +17,8 @@ Ellipse::~Ellipse()
 
 }
 
-void Ellipse::draw(QPainter _painter){
-    _painter.drawEllipse(getEllipse());
+void Ellipse::draw(){
+    painter->drawEllipse(getEllipse());
 }
 
 void Ellipse::select(int x, int y) {

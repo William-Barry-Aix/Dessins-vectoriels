@@ -4,6 +4,7 @@
 #include <iostream>
 #include <list>
 #include <QDebug>
+#include <QPainter>
 
 ShapesContainer::ShapesContainer()
 {
@@ -18,21 +19,21 @@ ShapesContainer::~ShapesContainer()
 
 void ShapesContainer::addShape(Shape _shape){
     shapesList.push_back(_shape);
-    //re-call draw() du contexte graphique
 }
 
 void ShapesContainer::draw(){
-    for (Shape current : shapesList ) {
-        current.draw();
-    }
+    //std::for_each (shapesList.begin(), shapesList.end(), std::mem_fun(&Rectangle::draw));
+    //std::for_each (shapesList.begin(), shapesList.end(), std::mem_fun(&Ellipse::draw));
 }
+
 Shape ShapesContainer::getShapeFromPoint(double _x, double _y){
-    for (Shape current : shapesList ) {
-        if (current.isSelected((int)_x, (int)_y)){
-            return current
+    std::list<Shape>::iterator it;
+    for (it = shapesList.begin(); it != shapesList.end(); it++){
+        if (it->isSelected((int)_x, (int)_y)){
+            //return shapesList   [it];
+            return *it;
         }
     }
-
-    qDebug() << " so shape selected";
+    qDebug() << " no shape selected";
     //return NULL;
 }

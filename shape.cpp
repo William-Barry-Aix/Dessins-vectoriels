@@ -4,6 +4,7 @@
 #include <QVector2D>
 #include <QDebug>
 #include <QPainter>
+#include <QGuiApplication>
 
 //constructeur
 Shape::Shape(){
@@ -19,7 +20,7 @@ Shape::Shape(QString _name, QVector2D _position){ //QString _name, QVector3D _po
     position = _position;
 }
 
-Shape::Shape(QString _name, QVector2D _position, QColor _borderColor, QColor _fillColor, double _sizeBorder){ //
+Shape::Shape(QString _name, QVector2D _position, QColor _borderColor, QColor _fillColor, double _sizeBorder){
     name = _name;
     position = _position;
     borderColor = _borderColor;
@@ -27,11 +28,24 @@ Shape::Shape(QString _name, QVector2D _position, QColor _borderColor, QColor _fi
     sizeBorder = _sizeBorder;
 }
 
-//destructeur
 Shape::~Shape(){
-    qDebug() << "destruction d'instance";
+    delete painter;
+    delete pen;
 }
 
+void Shape::draw(){
+    qDebug() << "draw";
+}
+void Shape::select(int x, int y){
+    qDebug() << "isSelected" << x << y;
+}
+bool Shape::isSelected(int x, int y){
+    qDebug() << "isSelected" << x << y;
+    return false;
+}
+void Shape::save(){
+    qDebug() << "save";
+}
 
 //setters
 void Shape::setName(QString _name){
@@ -54,13 +68,18 @@ void Shape::setSizeBorder(double _sizeBorder){
     sizeBorder = _sizeBorder;
 }
 
-QPen Shape::getPen(){
-    pen.setColor(borderColor);
-    pen.setWidth(sizeBorder);
-    pen.setColor(fillColor);
+void Shape::setPainter(){
+    painter = new QPainter();
+}
 
+void Shape::setPen(){
+    painter = new QPainter();
+    pen = new QPen();
+    pen->setColor(borderColor);
+    pen->setWidth(sizeBorder);
+    pen->setColor(fillColor);
 
-    return pen;
+    painter->setPen(*pen);
 }
 
 

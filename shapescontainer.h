@@ -3,6 +3,8 @@
 
 #include <list>
 #include "shape.h"
+#include "rectangle.h"
+#include "ellipse.h"
 
 class ShapesContainer
 {

@@ -18,7 +18,7 @@ public:
     ~Ellipse();
 
 public:
-    void draw(QPainter _painter) override;
+    void draw() override;
     void select(int x, int y) override;
     bool isSelected(int x, int y) override;
     void save() override;
