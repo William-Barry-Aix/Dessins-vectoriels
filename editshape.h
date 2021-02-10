@@ -24,13 +24,14 @@ private :
     QGraphicsEllipseItem *ellipse;
     QGraphicsRectItem *rectangle;
 
-
-private slots:
-
+    QList<QGraphicsItem *> selectedItems;
 
 
-    void on_x_textEdited(const QString &arg1);
-    void on_y_textEdited(const QString &arg1);
+public slots:
+    void on_x_textEdited(const double arg1);
+    void on_y_textEdited(const double arg1);
+    void on_selectionChanged();
+    void setSelectedList();
 };
 
 #endif // EDITSHAPE_H

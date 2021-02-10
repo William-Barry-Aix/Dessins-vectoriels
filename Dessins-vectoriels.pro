@@ -19,7 +19,6 @@ SOURCES += \
     editshape.cpp \
     ellipse.cpp \
     main.cpp \
-    painterscene.cpp \
     princ.cpp \
     rectangle.cpp \
     shape.cpp \
@@ -27,7 +26,6 @@ SOURCES += \
 
 HEADERS += \
     editshape.h \
-    painterscene.h \
     princ.h \
     ellipse.h \
     princ.h \

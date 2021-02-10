@@ -13,7 +13,7 @@ public:
     void setPainter(QPainter painter);
 
 protected:
-    void paintEvent(QPaintEvent *event);
+    //void paintEvent(QPaintEvent *event);
 
 signals:
 

@@ -19,7 +19,7 @@
      <x>100</x>
      <y>30</y>
      <width>471</width>
-     <height>251</height>
+     <height>291</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -32,7 +32,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
+      <y>20</y>
       <width>42</width>
       <height>13</height>
      </rect>
@@ -54,37 +54,17 @@
      <string>x</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="x">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>10</y>
-      <width>16</width>
-      <height>16</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>10</y>
+      <x>60</x>
+      <y>30</y>
       <width>47</width>
       <height>13</height>
      </rect>
     </property>
     <property name="text">
      <string>y</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="y">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>10</y>
-      <width>16</width>
-      <height>16</height>
-     </rect>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
@@ -123,25 +103,38 @@
      <string>couleur</string>
     </property>
    </widget>
-   <widget class="PainterScene" name="graphicsView">
+   <widget class="QGraphicsView" name="graphicsView">
     <property name="geometry">
      <rect>
       <x>110</x>
-      <y>50</y>
+      <y>80</y>
       <width>256</width>
       <height>192</height>
      </rect>
     </property>
    </widget>
+   <widget class="QDoubleSpinBox" name="box_x">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>10</y>
+      <width>62</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="box_y">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>30</y>
+      <width>62</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>PainterScene</class>
-   <extends>QGraphicsView</extends>
-   <header>painterscene.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>
