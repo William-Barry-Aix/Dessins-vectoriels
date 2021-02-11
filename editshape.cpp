@@ -9,6 +9,7 @@
 
 
 
+
 EditShape::EditShape(QWidget *parent) :
     QWidget(parent)
 {
@@ -17,10 +18,13 @@ EditShape::EditShape(QWidget *parent) :
     scene = new QGraphicsScene(this);
     graphicsView->setScene(scene);// peut etre précédé de ui->
 
-    connect(box_x, SIGNAL(valueChanged(double)), this, SLOT(on_x_textEdited(double)));
-    connect(box_y, SIGNAL(valueChanged(double)), this, SLOT(on_y_textEdited(double)));
+    connect(box_x, SIGNAL(valueChanged(double)), this, SLOT(on_box_x_valueChanged(double)));
+    connect(box_y, SIGNAL(valueChanged(double)), this, SLOT(on_box_y_valueChanged(double)));
+    connect(box_ep, SIGNAL(valueChanged(double)), this, SLOT(on_box_ep_valueChanged(double)));
     connect(scene, SIGNAL(selectionChanged()),
             this, SLOT(on_selectionChanged()));
+
+//    std::numeric_limits<double>::lowest();
 
     QBrush redBrush(Qt::red);
     QBrush blueBrush = QBrush(Qt::blue);
@@ -29,7 +33,7 @@ EditShape::EditShape(QWidget *parent) :
 
     ellipse = scene->addEllipse(10,10,100,100,blackpen,redBrush);
     ellipse->setFlag(QGraphicsItem::ItemIsMovable); // on comprend pas l'erreur
-
+    scene->addItem(ellipse);
     QRect rect = QRect(10,10,50,50);
     QGraphicsRectItem *rectItem = new QGraphicsRectItem(rect);
     rectItem->setFlags(QGraphicsItem::ItemIsSelectable | QGraphicsItem::ItemIsMovable); // on comprend pas l'erreur
@@ -37,7 +41,12 @@ EditShape::EditShape(QWidget *parent) :
     rectItem->setPen(blackpen);
     scene->addItem(rectItem);
 
-    qDebug() << rectangle;
+    box_x->setMinimum(-9999); // permet aux double d'etre negatifs
+    box_y->setMinimum(-9999);
+
+
+    //qDebug() << rectangle;
+
     //QPainter painter(this);
     /*
     rect1 =new class Rectangle(80.0, 120.0);
@@ -60,7 +69,7 @@ EditShape::EditShape(QWidget *parent) :
 
 
 
-
+/*
 void EditShape::on_x_textEdited(const double arg1)
 {
     if (!scene->selectedItems().isEmpty()){
@@ -70,20 +79,20 @@ void EditShape::on_x_textEdited(const double arg1)
 }
 
 
-
 void EditShape::on_y_textEdited(const double arg1)
 {
     if (!scene->selectedItems().isEmpty()){
         scene->selectedItems().first()->setX(arg1);
     }
 }
-
+*/
 void EditShape::on_selectionChanged(){
     if (!scene->selectedItems().isEmpty()){
         QGraphicsItem *item = scene->selectedItems().first();
         qDebug() << "oui" << item->x() << item->y();
         box_x->setValue(item->x());
         box_y->setValue(item->y());
+       // box_ep->setValue(item->) //associer la box_ep a l'épaisseur de l'item
     }else {
         box_x->setValue(0);
         box_y->setValue(0);
@@ -95,3 +104,27 @@ void EditShape::setSelectedList(){
     std::cout << "oui";
 }
 
+
+void EditShape::on_box_x_valueChanged(double arg1)
+{
+    if (!scene->selectedItems().isEmpty()){
+        scene->selectedItems().first()->setX(arg1);
+    }
+}
+
+void EditShape::on_box_y_valueChanged(double arg1)
+{
+    if (!scene->selectedItems().isEmpty()){
+        scene->selectedItems().first()->setY(arg1);
+    }
+}
+
+
+
+void EditShape::on_box_ep_valueChanged(double arg1)
+{
+    if (!scene->selectedItems().isEmpty()){
+//        scene->selectedItems().first()-> // augmente ou diminue l'épaisseur de l'item selectionné en fonction de arg1
+    }
+
+}

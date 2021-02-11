@@ -80,16 +80,6 @@
      <string>epaisseur</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_3">
-    <property name="geometry">
-     <rect>
-      <x>220</x>
-      <y>10</y>
-      <width>31</width>
-      <height>16</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
@@ -128,6 +118,16 @@
      <rect>
       <x>70</x>
       <y>30</y>
+      <width>62</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="box_ep">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>10</y>
       <width>62</width>
       <height>22</height>
      </rect>
