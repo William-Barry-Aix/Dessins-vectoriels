@@ -21,8 +21,9 @@ EditShape::EditShape(QWidget *parent) :
     connect(box_x, SIGNAL(valueChanged(double)), this, SLOT(on_box_x_valueChanged(double)));
     connect(box_y, SIGNAL(valueChanged(double)), this, SLOT(on_box_y_valueChanged(double)));
     connect(box_ep, SIGNAL(valueChanged(double)), this, SLOT(on_box_ep_valueChanged(double)));
-    connect(scene, SIGNAL(selectionChanged()),
-            this, SLOT(on_selectionChanged()));
+    connect(scene, SIGNAL(selectionChanged()), this, SLOT(on_selectionChanged()));
+    //connect(pushButton, SIGNAL(clicked()()), this, SLOT(on_pushButton_clicked()));
+    //connect(pushButton_2, SIGNAL(clicked()()), this, SLOT(on_pushButton_2_clicked));
 
 //    std::numeric_limits<double>::lowest();
 
@@ -123,8 +124,33 @@ void EditShape::on_box_y_valueChanged(double arg1)
 
 void EditShape::on_box_ep_valueChanged(double arg1)
 {
+    qDebug() << arg1;
     if (!scene->selectedItems().isEmpty()){
 //        scene->selectedItems().first()-> // augmente ou diminue l'épaisseur de l'item selectionné en fonction de arg1
     }
 
+}
+
+void EditShape::on_pushButton_clicked()
+{
+    //qDebug() << "ajout cercle";
+    QGraphicsEllipseItem *elipse = scene->addEllipse(20,20,100,100, QPen(Qt::black), QBrush(Qt::green));
+    elipse->setFlag(QGraphicsItem::ItemIsMovable);
+    scene->addItem(elipse);
+}
+
+void EditShape::on_pushButton_2_clicked()
+{
+    //qDebug() << "ajout rectanglehrzfzef";
+    QGraphicsRectItem *rectan = scene->addRect(15,15,100,100, QPen(Qt::black), QBrush(Qt::yellow));
+    rectan->setFlag(QGraphicsItem::ItemIsMovable);
+    scene->addItem(rectan);
+
+}
+
+void EditShape::on_pushButton_3_clicked()
+{
+    QGraphicsLineItem *ligne = scene->addLine(15,15,100,100, QPen(Qt::gray));
+    ligne->setFlag(QGraphicsItem::ItemIsMovable);
+    scene->addItem(ligne);
 }
