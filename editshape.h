@@ -26,6 +26,8 @@ private :
 
     QList<QGraphicsItem *> selectedItems;
 
+    QGraphicsItem::GraphicsItemFlags  defaultFlags =  QGraphicsItem::ItemIsSelectable | QGraphicsItem::ItemIsMovable;
+
 
 public slots:
   //  void on_x_textEdited(const double arg1);
@@ -41,6 +43,7 @@ private slots:
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();
     void on_pushButton_3_clicked();
+    void on_export_btn_clicked();
 };
 
 #endif // EDITSHAPE_H

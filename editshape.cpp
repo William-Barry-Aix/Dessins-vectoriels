@@ -25,25 +25,12 @@ EditShape::EditShape(QWidget *parent) :
     //connect(pushButton, SIGNAL(clicked()()), this, SLOT(on_pushButton_clicked()));
     //connect(pushButton_2, SIGNAL(clicked()()), this, SLOT(on_pushButton_2_clicked));
 
-//    std::numeric_limits<double>::lowest();
-
-    QBrush redBrush(Qt::red);
-    QBrush blueBrush = QBrush(Qt::blue);
-    QPen blackpen = QPen(Qt::black);
-    blackpen.setWidth(6);
-
-    ellipse = scene->addEllipse(10,10,100,100,blackpen,redBrush);
-    ellipse->setFlag(QGraphicsItem::ItemIsMovable); // on comprend pas l'erreur
-    scene->addItem(ellipse);
-    QRect rect = QRect(10,10,50,50);
-    QGraphicsRectItem *rectItem = new QGraphicsRectItem(rect);
-    rectItem->setFlags(QGraphicsItem::ItemIsSelectable | QGraphicsItem::ItemIsMovable); // on comprend pas l'erreur
-    rectItem->setBrush(blueBrush);
-    rectItem->setPen(blackpen);
-    scene->addItem(rectItem);
 
     box_x->setMinimum(-9999); // permet aux double d'etre negatifs
     box_y->setMinimum(-9999);
+
+    box_x->setMaximum(9999); // permet aux double d'etre negatifs
+    box_y->setMaximum(9999);
 
 
     //qDebug() << rectangle;
@@ -135,15 +122,15 @@ void EditShape::on_pushButton_clicked()
 {
     //qDebug() << "ajout cercle";
     QGraphicsEllipseItem *elipse = scene->addEllipse(20,20,100,100, QPen(Qt::black), QBrush(Qt::green));
-    elipse->setFlag(QGraphicsItem::ItemIsMovable);
-    scene->addItem(elipse);
+    elipse->setFlags(defaultFlags);
+    //scene->addItem(elipse);
 }
 
 void EditShape::on_pushButton_2_clicked()
 {
     //qDebug() << "ajout rectanglehrzfzef";
     QGraphicsRectItem *rectan = scene->addRect(15,15,100,100, QPen(Qt::black), QBrush(Qt::yellow));
-    rectan->setFlag(QGraphicsItem::ItemIsMovable);
+    rectan->setFlags(defaultFlags);
     scene->addItem(rectan);
 
 }
@@ -151,6 +138,21 @@ void EditShape::on_pushButton_2_clicked()
 void EditShape::on_pushButton_3_clicked()
 {
     QGraphicsLineItem *ligne = scene->addLine(15,15,100,100, QPen(Qt::gray));
-    ligne->setFlag(QGraphicsItem::ItemIsMovable);
+    ligne->setFlags(defaultFlags);
     scene->addItem(ligne);
+}
+
+
+void EditShape::on_export_btn_clicked()
+{
+    qDebug() << "done!";
+    scene->clearSelection();                                                  // Selections would also render to the file
+    scene->setSceneRect(scene->itemsBoundingRect());                          // Re-shrink the scene to it's bounding contents
+    QImage image(scene->sceneRect().size().toSize(), QImage::Format_ARGB32);  // Create the image with the exact size of the shrunk scene
+    image.fill(Qt::transparent);                                              // Start all pixels transparent
+
+    QPainter painter(&image);
+    scene->render(&painter);
+    image.save("file_name.png");
+
 }
